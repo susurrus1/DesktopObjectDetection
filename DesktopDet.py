@@ -11,7 +11,7 @@ deviceContext = win32gui.GetDC(0)
 deviceObject = win32ui.CreateDCFromHandle(deviceContext)
 windowHandle = win32gui.WindowFromPoint((0,0))
 monitorDimensions = (0, 0, GetSystemMetrics(0), GetSystemMetrics(1))
-monitorArray = list(monitor)
+monitorArray = list(monitorDimensions)
 
 # define properties of focus rectangle on screen
 win32gui.SystemParametersInfo(win32con.SPI_SETFOCUSBORDERWIDTH,4)
@@ -39,11 +39,8 @@ while True:
         label = labelList[detectedIndex]
 
         for redrawIndex in range(redrawNumber):
-            dcObj.DrawFocusRect(tuple(boundingBox))
-            dcObj.DrawText(label,boundingBox,
+            deviceObject.DrawFocusRect(tuple(boundingBox))
+            deviceObject.DrawText(label,boundingBox,
                            win32con.DT_SINGLELINE | win32con.DT_CENTER | win32con.DT_CENTER | win32con.DT_NOCLIP)
 
     win32gui.RedrawWindow(windowHandle,None,None,win32con.RDW_INVALIDATE)
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
