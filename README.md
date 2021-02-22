@@ -28,7 +28,7 @@ from a command line, or start it from an IDE if you use one.  If you have two mo
 
 If you want to use the program to detect objects in a video game, you will need to run the game in windowed mode (by pressing ALT-ENTER), and no fullscreen.  This is because when in full screen, most games will use DirectX to control the display, which my code does not do and therefore you will not see anything displayed on top of the game.  If the game looks choppy, you can reduce the CPU usage of the code by increasing the value of the *sleepTime* variable (currently set at 0.5 seconds), and if the rectangle and text label do not remain displayed long enough to be seen, you can increase the *redrawNumber* variable (currently set at 10).
 
-Note: in principle, pressing the "q" key should stop the program, but this does not appear to work properly at this time.  The program can still be stopped using CTRL-C if it's running from a command prompt, or however you normally stop programs if it's running in an IDE.
+Note: currently, the program can be stopped using CTRL-C if it's running from a command prompt, or however you normally stop programs if it's running in an IDE.
 
 ***Credits***
 
